@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bveav6ctdlmbu"]
+[gd_scene load_steps=6 format=3 uid="uid://bveav6ctdlmbu"]
 
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_tvtda"]
 [ext_resource type="Shader" path="res://scenes/main.gdshader" id="2_82qdg"]
@@ -8,6 +8,13 @@
 shader = ExtResource("2_82qdg")
 shader_parameter/apply = true
 shader_parameter/amount = 0.2
+
+[sub_resource type="Environment" id="Environment_pu2uo"]
+background_mode = 3
+ambient_light_source = 2
+glow_enabled = true
+glow_blend_mode = 1
+glow_hdr_threshold = 0.1
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_tvtda")
@@ -24,3 +31,6 @@ metadata/_edit_lock_ = true
 
 [node name="Player" parent="." instance=ExtResource("3_jywvs")]
 position = Vector2(203, 175)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_pu2uo")
