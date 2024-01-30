@@ -1,10 +1,74 @@
-[gd_scene load_steps=4 format=3 uid="uid://evskswf05b50"]
+[gd_scene load_steps=15 format=3 uid="uid://evskswf05b50"]
 
 [ext_resource type="Script" path="res://scenes/player.gd" id="1_u3t4v"]
+[ext_resource type="Texture2D" uid="uid://c53lbub3j1c2w" path="res://sprites/player_idle_spr_0.png" id="2_7jjya"]
+[ext_resource type="Texture2D" uid="uid://irb64tul6vhb" path="res://sprites/player_attack_spr_0.png" id="2_xnb6p"]
+[ext_resource type="Texture2D" uid="uid://ce1e4y342gi2t" path="res://sprites/player_attack_spr_1.png" id="3_bygyi"]
+[ext_resource type="Texture2D" uid="uid://bhapet2eeanr0" path="res://sprites/player_idle_spr_1.png" id="3_po8vc"]
+[ext_resource type="Texture2D" uid="uid://btq5f6wx1m0oc" path="res://sprites/player_run_spr_0.png" id="4_lp6t1"]
+[ext_resource type="Texture2D" uid="uid://d0jcgmy3wsyqw" path="res://sprites/player_attack_spr_2.png" id="4_xd3rg"]
+[ext_resource type="Texture2D" uid="uid://dw4ox1k1xkwgr" path="res://sprites/player_run_spr_1.png" id="5_6x2tt"]
+[ext_resource type="Texture2D" uid="uid://bnpfcm4x8l5a1" path="res://sprites/player_run_spr_2.png" id="6_2ityu"]
+[ext_resource type="Texture2D" uid="uid://cpfm3txwbt3kx" path="res://sprites/player_eyes_spr_0.png" id="10_dhy2s"]
+[ext_resource type="Texture2D" uid="uid://dwe3d2qky8ru7" path="res://sprites/player_eyes_spr_1.png" id="11_tonxy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_18lep"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_eqtew"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_xnb6p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_bygyi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_xd3rg")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 5.0,
+"texture": ExtResource("2_7jjya")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_po8vc")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_lp6t1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_6x2tt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_2ityu")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gfsgl"]
+animations = [{
+"frames": [{
+"duration": 5.0,
+"texture": ExtResource("10_dhy2s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_tonxy")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
 
 [node name="Player" type="Node2D"]
 script = ExtResource("1_u3t4v")
@@ -16,3 +80,10 @@ shape = SubResource("RectangleShape2D_18lep")
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_eqtew")
+animation = &"idle"
+frame_progress = 0.415288
+
+[node name="eyes" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_gfsgl")
+animation = &"idle"
+frame_progress = 0.281018
