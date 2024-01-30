@@ -1,5 +1,5 @@
 extends Node2D
-var walk_speed = 100
+var walk_speed = 50
 
 func _ready():
 	$sprite.play("idle")
@@ -11,7 +11,6 @@ func _physics_process(delta):
 	var up = Input.is_action_pressed("up")
 	var down = Input.is_action_pressed("down")
 	var moving = left or right or up or down
-	
 	
 	if left:
 		position.x -= walk_speed * delta

@@ -81,9 +81,9 @@ shape = SubResource("RectangleShape2D_18lep")
 [node name="sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_eqtew")
 animation = &"idle"
-frame_progress = 0.415288
+frame_progress = 0.979102
 
 [node name="eyes" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_gfsgl")
 animation = &"idle"
-frame_progress = 0.281018
+frame_progress = 0.343404

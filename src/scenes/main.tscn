@@ -1,13 +1,24 @@
-[gd_scene load_steps=6 format=3 uid="uid://bveav6ctdlmbu"]
+[gd_scene load_steps=10 format=3 uid="uid://bveav6ctdlmbu"]
 
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_tvtda"]
 [ext_resource type="Shader" path="res://scenes/main.gdshader" id="2_82qdg"]
+[ext_resource type="Texture2D" uid="uid://c22nci7dcrcw" path="res://backgrounds/grass_tileset.png" id="3_ewwgm"]
 [ext_resource type="PackedScene" uid="uid://evskswf05b50" path="res://scenes/player.tscn" id="3_jywvs"]
+[ext_resource type="PackedScene" uid="uid://d3fv13mhatpqs" path="res://scenes/cell.tscn" id="5_tcb6t"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_knga3"]
 shader = ExtResource("2_82qdg")
 shader_parameter/apply = true
 shader_parameter/amount = 0.2
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t8vpu"]
+texture = ExtResource("3_ewwgm")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_15j2q"]
+tile_size = Vector2i(64, 64)
+sources/0 = SubResource("TileSetAtlasSource_t8vpu")
 
 [sub_resource type="Environment" id="Environment_pu2uo"]
 background_mode = 3
@@ -30,9 +41,30 @@ offset_right = 340.0
 offset_bottom = 260.0
 mouse_filter = 2
 
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_15j2q")
+cell_quadrant_size = 64
+format = 2
+layer_0/tile_data = PackedInt32Array(3, 0, 0, 4, 0, 0, 65540, 0, 0, 131076, 0, 0, 196612, 0, 0, 196611, 0, 0, 196610, 0, 0, 196609, 0, 0, 196608, 0, 0, 131072, 0, 0, 131073, 0, 0, 131074, 0, 0, 131075, 0, 0, 65539, 0, 0, 65538, 0, 0, 65537, 0, 0, 1, 0, 0, 0, 0, 0, 65536, 0, 0, 2, 0, 0, 65535, 0, 0, 131071, 0, 0, 196607, 0, 0, 262143, 0, 0, 327679, 0, 0, 262144, 0, 0, 262145, 0, 0, 262146, 0, 0, 262147, 0, 0, 262148, 0, 0, 262149, 0, 0, 196613, 0, 0, 131077, 0, 0, 65541, 0, 0, 5, 0, 0, -65531, 0, 0, -65532, 0, 0, -65533, 0, 0, -65534, 0, 0, -65535, 0, 0, -65536, 0, 0, -1, 0, 0, -2, 0, 0, 65534, 0, 0, 131070, 0, 0, 196606, 0, 0, 262142, 0, 0, 327678, 0, 0, 262150, 0, 0, 196614, 0, 0, 131078, 0, 0, 65542, 0, 0, 6, 0, 0, -65530, 0, 0, -65529, 0, 0, 7, 0, 0, 65543, 0, 0, 131079, 0, 0, 196615, 0, 0, 262151, 0, 0, -65539, 0, 0, -65538, 0, 0, -65537, 0, 0, -131072, 0, 0, -131071, 0, 0, -131070, 0, 0, -131069, 0, 0, -131068, 0, 0, -131067, 0, 0, -131066, 0, 0, -131065, 0, 0, -131064, 0, 0, -65528, 0, 0, 8, 0, 0, 65544, 0, 0, 131080, 0, 0, 196616, 0, 0, 262152, 0, 0, 327688, 0, 0, 327687, 0, 0, 327686, 0, 0, 327685, 0, 0, 327684, 0, 0, 327683, 0, 0, 327682, 0, 0, 327681, 0, 0, 327680, 0, 0, 393215, 0, 0, 393214, 0, 0, 393213, 0, 0, 327677, 0, 0, 262141, 0, 0, 196605, 0, 0, 131069, 0, 0, 65533, 0, 0, -3, 0, 0)
+
 [node name="Player" parent="." instance=ExtResource("3_jywvs")]
 y_sort_enabled = true
-position = Vector2(203, 175)
+position = Vector2(158, 122)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_pu2uo")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(160, 120)
+
+[node name="cell" parent="Camera2D" instance=ExtResource("5_tcb6t")]
+position = Vector2(-144, -104)
+
+[node name="cell2" parent="Camera2D" instance=ExtResource("5_tcb6t")]
+position = Vector2(144, 104)
+
+[node name="cell3" parent="Camera2D" instance=ExtResource("5_tcb6t")]
+position = Vector2(-144, 104)
+
+[node name="cell4" parent="Camera2D" instance=ExtResource("5_tcb6t")]
+position = Vector2(144, -104)
