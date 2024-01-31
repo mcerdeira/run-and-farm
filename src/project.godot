@@ -27,7 +27,7 @@ Music="*res://scripts/Music.gd"
 [display]
 
 window/size/viewport_width=320
-window/size/viewport_height=240
+window/size/viewport_height=256
 window/size/resizable=false
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
