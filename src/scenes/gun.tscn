@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://eykbhgprho5q"]
+
+[ext_resource type="Texture2D" uid="uid://d10i1m8er36sp" path="res://sprites/gun_spr_0.png" id="1_j36he"]
+[ext_resource type="Script" path="res://scenes/gun.gd" id="1_vd38i"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dhtf0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_j36he")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Gun" type="Node2D"]
+script = ExtResource("1_vd38i")
+
+[node name="sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_dhtf0")
+offset = Vector2(14, 0)
+
+[node name="shoot_pos" type="Marker2D" parent="."]
+position = Vector2(29, -4)

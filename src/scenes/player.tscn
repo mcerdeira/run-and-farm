@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://evskswf05b50"]
+[gd_scene load_steps=16 format=3 uid="uid://evskswf05b50"]
 
 [ext_resource type="Script" path="res://scenes/player.gd" id="1_u3t4v"]
 [ext_resource type="Texture2D" uid="uid://c53lbub3j1c2w" path="res://sprites/player_idle_spr_0.png" id="2_7jjya"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://bnpfcm4x8l5a1" path="res://sprites/player_run_spr_2.png" id="6_2ityu"]
 [ext_resource type="Texture2D" uid="uid://cpfm3txwbt3kx" path="res://sprites/player_eyes_spr_0.png" id="10_dhy2s"]
 [ext_resource type="Texture2D" uid="uid://dwe3d2qky8ru7" path="res://sprites/player_eyes_spr_1.png" id="11_tonxy"]
+[ext_resource type="PackedScene" uid="uid://eykbhgprho5q" path="res://scenes/gun.tscn" id="12_tp6b5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_18lep"]
 
@@ -87,3 +88,5 @@ frame_progress = 0.979102
 sprite_frames = SubResource("SpriteFrames_gfsgl")
 animation = &"idle"
 frame_progress = 0.343404
+
+[node name="Gun" parent="." instance=ExtResource("12_tp6b5")]
