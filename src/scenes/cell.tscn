@@ -1,7 +1,25 @@
-[gd_scene load_steps=6 format=3 uid="uid://d3fv13mhatpqs"]
+[gd_scene load_steps=10 format=3 uid="uid://d3fv13mhatpqs"]
 
 [ext_resource type="Script" path="res://scenes/cell.gd" id="1_r4uht"]
 [ext_resource type="Texture2D" uid="uid://ccbjvmnund6yq" path="res://sprites/cell.png" id="1_yxj4l"]
+[ext_resource type="Texture2D" uid="uid://dpfkweh23twxm" path="res://sprites/cell_planted1.png" id="3_yrytj"]
+[ext_resource type="Texture2D" uid="uid://c0b5vgk8v4mxl" path="res://sprites/cell_planted2.png" id="4_2cx7x"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kroic"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_yxj4l")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"planted",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2g1lg"]
 size = Vector2(32, 32)
@@ -18,7 +36,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.721569)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fivym"]
@@ -26,16 +44,28 @@ _data = {
 "new_animation": SubResource("Animation_4k5l1")
 }
 
-[node name="cell" type="Node2D"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_hywl3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_yrytj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_2cx7x")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="cell" type="Area2D"]
 script = ExtResource("1_r4uht")
 
-[node name="Cell" type="Sprite2D" parent="."]
+[node name="Cell" type="AnimatedSprite2D" parent="."]
 modulate = Color(1, 1, 1, 0)
-texture = ExtResource("1_yxj4l")
+sprite_frames = SubResource("SpriteFrames_kroic")
 
-[node name="area" type="Area2D" parent="."]
-
-[node name="collider" type="CollisionShape2D" parent="area"]
+[node name="collider" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_2g1lg")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -44,5 +74,9 @@ libraries = {
 "": SubResource("AnimationLibrary_fivym")
 }
 
-[connection signal="mouse_entered" from="area" to="." method="_on_area_mouse_entered"]
-[connection signal="mouse_exited" from="area" to="." method="_on_area_mouse_exited"]
+[node name="CellPlanted" type="AnimatedSprite2D" parent="."]
+visible = false
+sprite_frames = SubResource("SpriteFrames_hywl3")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

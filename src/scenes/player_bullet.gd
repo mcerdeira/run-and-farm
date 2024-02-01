@@ -1,14 +1,31 @@
 extends CharacterBody2D
 const SPEED = 300.0
 var target = null
+var target_obj = null
 var type = ""
+var seed_type = ""
 
-func _ready():
-	target = (get_global_mouse_position() - self.global_position).normalized()
+func initialize(_target, _target_obj):
+	target = _target
+	target_obj = _target_obj
 	velocity = target * SPEED
-	
-func initialize():
 	$sprite.animation = type
 
 func _physics_process(delta):
 	move_and_slide()
+
+func _on_visible_notifier_screen_exited():
+	queue_free()
+
+func _on_area_area_entered(area):
+	if visible:
+		if target_obj == null and area and area.is_in_group("enemies"):
+			area.hit()
+			visible = false
+			queue_free()
+		
+		if target_obj != null and area and area.is_in_group("cells"):
+			if area == target_obj:
+				target_obj.notify_plant(seed_type)
+				visible = false
+				queue_free()
