@@ -71,12 +71,10 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Player" type="Node2D"]
+[node name="Player" type="Area2D"]
 script = ExtResource("1_u3t4v")
 
-[node name="area" type="Area2D" parent="."]
-
-[node name="collider" type="CollisionShape2D" parent="area"]
+[node name="collider" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_18lep")
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]

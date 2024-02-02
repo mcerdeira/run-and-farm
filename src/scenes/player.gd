@@ -1,7 +1,8 @@
-extends Node2D
+extends Area2D
 var walk_speed = 50
 
 func _ready():
+	add_to_group("players")
 	$sprite.play("idle")
 	$eyes.play("idle")
 

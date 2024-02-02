@@ -1,11 +1,15 @@
-[gd_scene load_steps=12 format=3 uid="uid://bveav6ctdlmbu"]
+[gd_scene load_steps=16 format=3 uid="uid://bveav6ctdlmbu"]
 
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_tvtda"]
+[ext_resource type="Script" path="res://scenes/hud1.gd" id="2_6mq7f"]
 [ext_resource type="Shader" path="res://scenes/main.gdshader" id="2_82qdg"]
+[ext_resource type="Texture2D" uid="uid://lwxays5lhhfn" path="res://sprites/player_bullet_seed.png" id="2_gta3t"]
 [ext_resource type="Texture2D" uid="uid://c22nci7dcrcw" path="res://backgrounds/grass_tileset.png" id="3_ewwgm"]
 [ext_resource type="PackedScene" uid="uid://evskswf05b50" path="res://scenes/player.tscn" id="3_jywvs"]
+[ext_resource type="FontFile" uid="uid://cqp5o2vpb07yg" path="res://fonts/prstartk.ttf" id="3_liy5m"]
 [ext_resource type="Texture2D" uid="uid://cg2hdav80g6x3" path="res://backgrounds/dirt_tileset.png" id="4_vs55n"]
 [ext_resource type="PackedScene" uid="uid://d3fv13mhatpqs" path="res://scenes/cell.tscn" id="5_tcb6t"]
+[ext_resource type="Script" path="res://scenes/Shaker.gd" id="10_3e081"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_knga3"]
 shader = ExtResource("2_82qdg")
@@ -37,6 +41,25 @@ glow_hdr_threshold = 0.1
 [node name="Main" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_tvtda")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="hud1" type="Node2D" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0.67451)
+script = ExtResource("2_6mq7f")
+
+[node name="seed_hud" type="Sprite2D" parent="CanvasLayer/hud1"]
+position = Vector2(7, 7)
+texture = ExtResource("2_gta3t")
+
+[node name="lbl_seed" type="Label" parent="CanvasLayer/hud1/seed_hud"]
+offset_left = 10.0
+offset_top = -1.0
+offset_right = 51.0
+offset_bottom = 10.0
+theme_override_fonts/font = ExtResource("3_liy5m")
+theme_override_font_sizes/font_size = 8
+text = "x1"
 
 [node name="FX" type="ColorRect" parent="."]
 visible = false
@@ -305,3 +328,7 @@ position = Vector2(158, 122)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_pu2uo")
+
+[node name="Shaker" type="Node2D" parent="."]
+script = ExtResource("10_3e081")
+_camera = NodePath("../Camera2D")
