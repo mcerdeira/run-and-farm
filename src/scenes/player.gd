@@ -15,10 +15,13 @@ func _physics_process(delta):
 	
 	if left:
 		position.x -= walk_speed * delta
-		scale.x = -1
+		$sprite.scale.x = -1
+		$eyes.scale.x = -1
+		
 	elif right:
 		position.x += walk_speed * delta
-		scale.x = 1
+		$sprite.scale.x = 1
+		$eyes.scale.x = 1
 
 	if up:
 		position.y -= walk_speed * delta

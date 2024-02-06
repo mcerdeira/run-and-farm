@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bveav6ctdlmbu"]
+[gd_scene load_steps=17 format=3 uid="uid://bveav6ctdlmbu"]
 
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_tvtda"]
 [ext_resource type="Script" path="res://scenes/hud1.gd" id="2_6mq7f"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://cg2hdav80g6x3" path="res://backgrounds/dirt_tileset.png" id="4_vs55n"]
 [ext_resource type="PackedScene" uid="uid://d3fv13mhatpqs" path="res://scenes/cell.tscn" id="5_tcb6t"]
 [ext_resource type="Script" path="res://scenes/Shaker.gd" id="10_3e081"]
+[ext_resource type="PackedScene" uid="uid://cppwk2p0cewq" path="res://scenes/seed.tscn" id="11_ah1ir"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_knga3"]
 shader = ExtResource("2_82qdg")
@@ -74,261 +75,269 @@ mouse_filter = 2
 [node name="TileMap" type="TileMap" parent="."]
 z_index = -4096
 tile_set = SubResource("TileSet_15j2q")
-cell_quadrant_size = 64
+rendering_quadrant_size = 64
 format = 2
 layer_0/tile_data = PackedInt32Array(3, 0, 0, 4, 0, 0, 65540, 0, 0, 131076, 0, 0, 196612, 0, 0, 196611, 0, 0, 196610, 0, 0, 196609, 0, 0, 196608, 0, 0, 131072, 0, 0, 131073, 0, 0, 131074, 0, 0, 131075, 0, 0, 65539, 0, 0, 65538, 0, 0, 65537, 0, 0, 1, 0, 0, 0, 0, 0, 65536, 0, 0, 2, 0, 0, 65535, 1, 0, 131071, 1, 0, 196607, 1, 0, 262143, 1, 0, 327679, 1, 0, 262144, 1, 0, 262145, 1, 0, 262146, 1, 0, 262147, 1, 0, 262148, 1, 0, 262149, 1, 0, 196613, 1, 0, 131077, 1, 0, 65541, 1, 0, 5, 1, 0, -65531, 1, 0, -65532, 1, 0, -65533, 1, 0, -65534, 1, 0, -65535, 1, 0, -65536, 1, 0, -1, 1, 0, -2, 1, 0, 65534, 1, 0, 131070, 1, 0, 196606, 1, 0, 262142, 1, 0, 327678, 1, 0, 262150, 1, 0, 196614, 1, 0, 131078, 1, 0, 65542, 1, 0, 6, 1, 0, -65530, 1, 0, -65529, 1, 0, 7, 1, 0, 65543, 1, 0, 131079, 1, 0, 196615, 1, 0, 262151, 1, 0, -65539, 1, 0, -65538, 1, 0, -65537, 1, 0, -131072, 1, 0, -131071, 1, 0, -131070, 1, 0, -131069, 1, 0, -131068, 1, 0, -131067, 1, 0, -131066, 1, 0, -131065, 1, 0, -131064, 1, 0, -65528, 1, 0, 8, 1, 0, 65544, 1, 0, 131080, 1, 0, 196616, 1, 0, 262152, 1, 0, 327688, 1, 0, 327687, 1, 0, 327686, 1, 0, 327685, 1, 0, 327684, 1, 0, 327683, 1, 0, 327682, 1, 0, 327681, 1, 0, 327680, 1, 0, 393215, 1, 0, 327677, 1, 0, 262141, 1, 0, 196605, 1, 0, 131069, 1, 0, 65533, 1, 0, -3, 1, 0, 393214, 1, 0, 393213, 1, 0)
-
-[node name="Camera2D" type="Camera2D" parent="."]
-z_index = -4095
-position = Vector2(160, 128)
-
-[node name="cell" parent="Camera2D" instance=ExtResource("5_tcb6t")]
-position = Vector2(-144, -112)
-
-[node name="cell2" parent="Camera2D" instance=ExtResource("5_tcb6t")]
-position = Vector2(-112, -112)
-
-[node name="cell3" parent="Camera2D" instance=ExtResource("5_tcb6t")]
-position = Vector2(-80, -112)
-
-[node name="cell4" parent="Camera2D" instance=ExtResource("5_tcb6t")]
-position = Vector2(-48, -112)
-
-[node name="cell5" parent="Camera2D" instance=ExtResource("5_tcb6t")]
-position = Vector2(-16, -112)
-
-[node name="cell6" parent="Camera2D" instance=ExtResource("5_tcb6t")]
-position = Vector2(16, -112)
-
-[node name="cell7" parent="Camera2D" instance=ExtResource("5_tcb6t")]
-position = Vector2(48, -112)
-
-[node name="cell8" parent="Camera2D" instance=ExtResource("5_tcb6t")]
-position = Vector2(80, -112)
-
-[node name="cell9" parent="Camera2D" instance=ExtResource("5_tcb6t")]
-position = Vector2(112, -112)
-
-[node name="cell10" parent="Camera2D" instance=ExtResource("5_tcb6t")]
-position = Vector2(144, -112)
-
-[node name="cell11" parent="Camera2D" instance=ExtResource("5_tcb6t")]
-position = Vector2(-144, -80)
-
-[node name="cell12" parent="Camera2D" instance=ExtResource("5_tcb6t")]
-position = Vector2(-112, -80)
-
-[node name="cell13" parent="Camera2D" instance=ExtResource("5_tcb6t")]
-position = Vector2(-80, -80)
-
-[node name="cell14" parent="Camera2D" instance=ExtResource("5_tcb6t")]
-position = Vector2(-48, -80)
-
-[node name="cell15" parent="Camera2D" instance=ExtResource("5_tcb6t")]
-position = Vector2(-16, -80)
-
-[node name="cell16" parent="Camera2D" instance=ExtResource("5_tcb6t")]
-position = Vector2(16, -80)
-
-[node name="cell17" parent="Camera2D" instance=ExtResource("5_tcb6t")]
-position = Vector2(48, -80)
-
-[node name="cell18" parent="Camera2D" instance=ExtResource("5_tcb6t")]
-position = Vector2(80, -80)
-
-[node name="cell19" parent="Camera2D" instance=ExtResource("5_tcb6t")]
-position = Vector2(112, -80)
-
-[node name="cell20" parent="Camera2D" instance=ExtResource("5_tcb6t")]
-position = Vector2(144, -80)
-
-[node name="cell21" parent="Camera2D" instance=ExtResource("5_tcb6t")]
-position = Vector2(-144, -48)
-
-[node name="cell22" parent="Camera2D" instance=ExtResource("5_tcb6t")]
-position = Vector2(-112, -48)
-
-[node name="cell23" parent="Camera2D" instance=ExtResource("5_tcb6t")]
-position = Vector2(-80, -48)
-
-[node name="cell24" parent="Camera2D" instance=ExtResource("5_tcb6t")]
-position = Vector2(-48, -48)
-
-[node name="cell25" parent="Camera2D" instance=ExtResource("5_tcb6t")]
-position = Vector2(-16, -48)
-
-[node name="cell26" parent="Camera2D" instance=ExtResource("5_tcb6t")]
-position = Vector2(16, -48)
-
-[node name="cell27" parent="Camera2D" instance=ExtResource("5_tcb6t")]
-position = Vector2(48, -48)
-
-[node name="cell28" parent="Camera2D" instance=ExtResource("5_tcb6t")]
-position = Vector2(80, -48)
-
-[node name="cell29" parent="Camera2D" instance=ExtResource("5_tcb6t")]
-position = Vector2(112, -48)
-
-[node name="cell30" parent="Camera2D" instance=ExtResource("5_tcb6t")]
-position = Vector2(144, -48)
-
-[node name="cell31" parent="Camera2D" instance=ExtResource("5_tcb6t")]
-position = Vector2(-144, -16)
-
-[node name="cell32" parent="Camera2D" instance=ExtResource("5_tcb6t")]
-position = Vector2(-112, -16)
-
-[node name="cell33" parent="Camera2D" instance=ExtResource("5_tcb6t")]
-position = Vector2(-80, -16)
-
-[node name="cell34" parent="Camera2D" instance=ExtResource("5_tcb6t")]
-position = Vector2(-48, -16)
-
-[node name="cell35" parent="Camera2D" instance=ExtResource("5_tcb6t")]
-position = Vector2(-16, -16)
-
-[node name="cell36" parent="Camera2D" instance=ExtResource("5_tcb6t")]
-position = Vector2(16, -16)
-
-[node name="cell37" parent="Camera2D" instance=ExtResource("5_tcb6t")]
-position = Vector2(48, -16)
-
-[node name="cell38" parent="Camera2D" instance=ExtResource("5_tcb6t")]
-position = Vector2(80, -16)
-
-[node name="cell39" parent="Camera2D" instance=ExtResource("5_tcb6t")]
-position = Vector2(112, -16)
-
-[node name="cell40" parent="Camera2D" instance=ExtResource("5_tcb6t")]
-position = Vector2(144, -16)
-
-[node name="cell41" parent="Camera2D" instance=ExtResource("5_tcb6t")]
-position = Vector2(-144, 16)
-
-[node name="cell42" parent="Camera2D" instance=ExtResource("5_tcb6t")]
-position = Vector2(-112, 16)
-
-[node name="cell43" parent="Camera2D" instance=ExtResource("5_tcb6t")]
-position = Vector2(-80, 16)
-
-[node name="cell44" parent="Camera2D" instance=ExtResource("5_tcb6t")]
-position = Vector2(-48, 16)
-
-[node name="cell45" parent="Camera2D" instance=ExtResource("5_tcb6t")]
-position = Vector2(-16, 16)
-
-[node name="cell46" parent="Camera2D" instance=ExtResource("5_tcb6t")]
-position = Vector2(16, 16)
-
-[node name="cell47" parent="Camera2D" instance=ExtResource("5_tcb6t")]
-position = Vector2(48, 16)
-
-[node name="cell48" parent="Camera2D" instance=ExtResource("5_tcb6t")]
-position = Vector2(80, 16)
-
-[node name="cell49" parent="Camera2D" instance=ExtResource("5_tcb6t")]
-position = Vector2(112, 16)
-
-[node name="cell50" parent="Camera2D" instance=ExtResource("5_tcb6t")]
-position = Vector2(144, 16)
-
-[node name="cell51" parent="Camera2D" instance=ExtResource("5_tcb6t")]
-position = Vector2(-144, 48)
-
-[node name="cell52" parent="Camera2D" instance=ExtResource("5_tcb6t")]
-position = Vector2(-112, 48)
-
-[node name="cell53" parent="Camera2D" instance=ExtResource("5_tcb6t")]
-position = Vector2(-80, 48)
-
-[node name="cell54" parent="Camera2D" instance=ExtResource("5_tcb6t")]
-position = Vector2(-48, 48)
-
-[node name="cell55" parent="Camera2D" instance=ExtResource("5_tcb6t")]
-position = Vector2(-16, 48)
-
-[node name="cell56" parent="Camera2D" instance=ExtResource("5_tcb6t")]
-position = Vector2(16, 48)
-
-[node name="cell57" parent="Camera2D" instance=ExtResource("5_tcb6t")]
-position = Vector2(48, 48)
-
-[node name="cell58" parent="Camera2D" instance=ExtResource("5_tcb6t")]
-position = Vector2(80, 48)
-
-[node name="cell59" parent="Camera2D" instance=ExtResource("5_tcb6t")]
-position = Vector2(112, 48)
-
-[node name="cell60" parent="Camera2D" instance=ExtResource("5_tcb6t")]
-position = Vector2(144, 48)
-
-[node name="cell61" parent="Camera2D" instance=ExtResource("5_tcb6t")]
-position = Vector2(-144, 80)
-
-[node name="cell62" parent="Camera2D" instance=ExtResource("5_tcb6t")]
-position = Vector2(-112, 80)
-
-[node name="cell63" parent="Camera2D" instance=ExtResource("5_tcb6t")]
-position = Vector2(-80, 80)
-
-[node name="cell64" parent="Camera2D" instance=ExtResource("5_tcb6t")]
-position = Vector2(-48, 80)
-
-[node name="cell65" parent="Camera2D" instance=ExtResource("5_tcb6t")]
-position = Vector2(-16, 80)
-
-[node name="cell66" parent="Camera2D" instance=ExtResource("5_tcb6t")]
-position = Vector2(16, 80)
-
-[node name="cell67" parent="Camera2D" instance=ExtResource("5_tcb6t")]
-position = Vector2(48, 80)
-
-[node name="cell68" parent="Camera2D" instance=ExtResource("5_tcb6t")]
-position = Vector2(80, 80)
-
-[node name="cell69" parent="Camera2D" instance=ExtResource("5_tcb6t")]
-position = Vector2(112, 80)
-
-[node name="cell70" parent="Camera2D" instance=ExtResource("5_tcb6t")]
-position = Vector2(144, 80)
-
-[node name="cell71" parent="Camera2D" instance=ExtResource("5_tcb6t")]
-position = Vector2(-144, 112)
-
-[node name="cell72" parent="Camera2D" instance=ExtResource("5_tcb6t")]
-position = Vector2(-112, 112)
-
-[node name="cell73" parent="Camera2D" instance=ExtResource("5_tcb6t")]
-position = Vector2(-80, 112)
-
-[node name="cell74" parent="Camera2D" instance=ExtResource("5_tcb6t")]
-position = Vector2(-48, 112)
-
-[node name="cell75" parent="Camera2D" instance=ExtResource("5_tcb6t")]
-position = Vector2(-16, 112)
-
-[node name="cell76" parent="Camera2D" instance=ExtResource("5_tcb6t")]
-position = Vector2(16, 112)
-
-[node name="cell77" parent="Camera2D" instance=ExtResource("5_tcb6t")]
-position = Vector2(48, 112)
-
-[node name="cell78" parent="Camera2D" instance=ExtResource("5_tcb6t")]
-position = Vector2(80, 112)
-
-[node name="cell79" parent="Camera2D" instance=ExtResource("5_tcb6t")]
-position = Vector2(112, 112)
-
-[node name="cell80" parent="Camera2D" instance=ExtResource("5_tcb6t")]
-position = Vector2(144, 112)
 
 [node name="Player" parent="." instance=ExtResource("3_jywvs")]
 y_sort_enabled = true
 position = Vector2(158, 122)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+z_index = -4095
+position = Vector2(2, 6)
+process_callback = 0
+position_smoothing_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_pu2uo")
 
 [node name="Shaker" type="Node2D" parent="."]
 script = ExtResource("10_3e081")
-_camera = NodePath("../Camera2D")
+_camera = NodePath("../Player/Camera2D")
+
+[node name="cell" parent="." instance=ExtResource("5_tcb6t")]
+position = Vector2(16, 16)
+
+[node name="cell2" parent="." instance=ExtResource("5_tcb6t")]
+position = Vector2(48, 16)
+
+[node name="cell3" parent="." instance=ExtResource("5_tcb6t")]
+position = Vector2(80, 16)
+
+[node name="cell4" parent="." instance=ExtResource("5_tcb6t")]
+position = Vector2(112, 16)
+
+[node name="cell5" parent="." instance=ExtResource("5_tcb6t")]
+position = Vector2(144, 16)
+
+[node name="cell6" parent="." instance=ExtResource("5_tcb6t")]
+position = Vector2(176, 16)
+
+[node name="cell7" parent="." instance=ExtResource("5_tcb6t")]
+position = Vector2(208, 16)
+
+[node name="cell8" parent="." instance=ExtResource("5_tcb6t")]
+position = Vector2(240, 16)
+
+[node name="cell9" parent="." instance=ExtResource("5_tcb6t")]
+position = Vector2(272, 16)
+
+[node name="cell10" parent="." instance=ExtResource("5_tcb6t")]
+position = Vector2(304, 16)
+
+[node name="cell11" parent="." instance=ExtResource("5_tcb6t")]
+position = Vector2(16, 48)
+
+[node name="cell12" parent="." instance=ExtResource("5_tcb6t")]
+position = Vector2(48, 48)
+
+[node name="cell13" parent="." instance=ExtResource("5_tcb6t")]
+position = Vector2(80, 48)
+
+[node name="cell14" parent="." instance=ExtResource("5_tcb6t")]
+position = Vector2(112, 48)
+
+[node name="cell15" parent="." instance=ExtResource("5_tcb6t")]
+position = Vector2(144, 48)
+
+[node name="cell16" parent="." instance=ExtResource("5_tcb6t")]
+position = Vector2(176, 48)
+
+[node name="cell17" parent="." instance=ExtResource("5_tcb6t")]
+position = Vector2(208, 48)
+
+[node name="cell18" parent="." instance=ExtResource("5_tcb6t")]
+position = Vector2(240, 48)
+
+[node name="cell19" parent="." instance=ExtResource("5_tcb6t")]
+position = Vector2(272, 48)
+
+[node name="cell20" parent="." instance=ExtResource("5_tcb6t")]
+position = Vector2(304, 48)
+
+[node name="cell21" parent="." instance=ExtResource("5_tcb6t")]
+position = Vector2(16, 80)
+
+[node name="cell22" parent="." instance=ExtResource("5_tcb6t")]
+position = Vector2(48, 80)
+
+[node name="cell23" parent="." instance=ExtResource("5_tcb6t")]
+position = Vector2(80, 80)
+
+[node name="cell24" parent="." instance=ExtResource("5_tcb6t")]
+position = Vector2(112, 80)
+
+[node name="cell25" parent="." instance=ExtResource("5_tcb6t")]
+position = Vector2(144, 80)
+
+[node name="cell26" parent="." instance=ExtResource("5_tcb6t")]
+position = Vector2(176, 80)
+
+[node name="cell27" parent="." instance=ExtResource("5_tcb6t")]
+position = Vector2(208, 80)
+
+[node name="cell28" parent="." instance=ExtResource("5_tcb6t")]
+position = Vector2(240, 80)
+
+[node name="cell29" parent="." instance=ExtResource("5_tcb6t")]
+position = Vector2(272, 80)
+
+[node name="cell30" parent="." instance=ExtResource("5_tcb6t")]
+position = Vector2(304, 80)
+
+[node name="cell31" parent="." instance=ExtResource("5_tcb6t")]
+position = Vector2(16, 112)
+
+[node name="cell32" parent="." instance=ExtResource("5_tcb6t")]
+position = Vector2(48, 112)
+
+[node name="cell33" parent="." instance=ExtResource("5_tcb6t")]
+position = Vector2(80, 112)
+
+[node name="cell34" parent="." instance=ExtResource("5_tcb6t")]
+position = Vector2(112, 112)
+
+[node name="cell35" parent="." instance=ExtResource("5_tcb6t")]
+position = Vector2(144, 112)
+
+[node name="cell36" parent="." instance=ExtResource("5_tcb6t")]
+position = Vector2(176, 112)
+
+[node name="cell37" parent="." instance=ExtResource("5_tcb6t")]
+position = Vector2(208, 112)
+
+[node name="cell38" parent="." instance=ExtResource("5_tcb6t")]
+position = Vector2(240, 112)
+
+[node name="cell39" parent="." instance=ExtResource("5_tcb6t")]
+position = Vector2(272, 112)
+
+[node name="cell40" parent="." instance=ExtResource("5_tcb6t")]
+position = Vector2(304, 112)
+
+[node name="cell41" parent="." instance=ExtResource("5_tcb6t")]
+position = Vector2(16, 144)
+
+[node name="cell42" parent="." instance=ExtResource("5_tcb6t")]
+position = Vector2(48, 144)
+
+[node name="cell43" parent="." instance=ExtResource("5_tcb6t")]
+position = Vector2(80, 144)
+
+[node name="cell44" parent="." instance=ExtResource("5_tcb6t")]
+position = Vector2(112, 144)
+
+[node name="cell45" parent="." instance=ExtResource("5_tcb6t")]
+position = Vector2(144, 144)
+
+[node name="cell46" parent="." instance=ExtResource("5_tcb6t")]
+position = Vector2(176, 144)
+
+[node name="cell47" parent="." instance=ExtResource("5_tcb6t")]
+position = Vector2(208, 144)
+
+[node name="cell48" parent="." instance=ExtResource("5_tcb6t")]
+position = Vector2(240, 144)
+
+[node name="cell49" parent="." instance=ExtResource("5_tcb6t")]
+position = Vector2(272, 144)
+
+[node name="cell50" parent="." instance=ExtResource("5_tcb6t")]
+position = Vector2(304, 144)
+
+[node name="cell51" parent="." instance=ExtResource("5_tcb6t")]
+position = Vector2(16, 176)
+
+[node name="cell52" parent="." instance=ExtResource("5_tcb6t")]
+position = Vector2(48, 176)
+
+[node name="cell53" parent="." instance=ExtResource("5_tcb6t")]
+position = Vector2(80, 176)
+
+[node name="cell54" parent="." instance=ExtResource("5_tcb6t")]
+position = Vector2(112, 176)
+
+[node name="cell55" parent="." instance=ExtResource("5_tcb6t")]
+position = Vector2(144, 176)
+
+[node name="cell56" parent="." instance=ExtResource("5_tcb6t")]
+position = Vector2(176, 176)
+
+[node name="cell57" parent="." instance=ExtResource("5_tcb6t")]
+position = Vector2(208, 176)
+
+[node name="cell58" parent="." instance=ExtResource("5_tcb6t")]
+position = Vector2(240, 176)
+
+[node name="cell59" parent="." instance=ExtResource("5_tcb6t")]
+position = Vector2(272, 176)
+
+[node name="cell60" parent="." instance=ExtResource("5_tcb6t")]
+position = Vector2(304, 176)
+
+[node name="cell61" parent="." instance=ExtResource("5_tcb6t")]
+position = Vector2(16, 208)
+
+[node name="cell62" parent="." instance=ExtResource("5_tcb6t")]
+position = Vector2(48, 208)
+
+[node name="cell63" parent="." instance=ExtResource("5_tcb6t")]
+position = Vector2(80, 208)
+
+[node name="cell64" parent="." instance=ExtResource("5_tcb6t")]
+position = Vector2(112, 208)
+
+[node name="cell65" parent="." instance=ExtResource("5_tcb6t")]
+position = Vector2(144, 208)
+
+[node name="cell66" parent="." instance=ExtResource("5_tcb6t")]
+position = Vector2(176, 208)
+
+[node name="cell67" parent="." instance=ExtResource("5_tcb6t")]
+position = Vector2(208, 208)
+
+[node name="cell68" parent="." instance=ExtResource("5_tcb6t")]
+position = Vector2(240, 208)
+
+[node name="cell69" parent="." instance=ExtResource("5_tcb6t")]
+position = Vector2(272, 208)
+
+[node name="cell70" parent="." instance=ExtResource("5_tcb6t")]
+position = Vector2(304, 208)
+
+[node name="cell71" parent="." instance=ExtResource("5_tcb6t")]
+position = Vector2(16, 240)
+
+[node name="cell72" parent="." instance=ExtResource("5_tcb6t")]
+position = Vector2(48, 240)
+
+[node name="cell73" parent="." instance=ExtResource("5_tcb6t")]
+position = Vector2(80, 240)
+
+[node name="cell74" parent="." instance=ExtResource("5_tcb6t")]
+position = Vector2(112, 240)
+
+[node name="cell75" parent="." instance=ExtResource("5_tcb6t")]
+position = Vector2(144, 240)
+
+[node name="cell76" parent="." instance=ExtResource("5_tcb6t")]
+position = Vector2(176, 240)
+
+[node name="cell77" parent="." instance=ExtResource("5_tcb6t")]
+position = Vector2(208, 240)
+
+[node name="cell78" parent="." instance=ExtResource("5_tcb6t")]
+position = Vector2(240, 240)
+
+[node name="cell79" parent="." instance=ExtResource("5_tcb6t")]
+position = Vector2(272, 240)
+
+[node name="cell80" parent="." instance=ExtResource("5_tcb6t")]
+position = Vector2(304, 240)
+
+[node name="seed" parent="." instance=ExtResource("11_ah1ir")]
+position = Vector2(65, 112)
+
+[node name="seed2" parent="." instance=ExtResource("11_ah1ir")]
+position = Vector2(201, 190)

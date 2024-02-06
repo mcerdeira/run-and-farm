@@ -6,7 +6,7 @@ var MUSIC_ENABLED = true
 var MUSIC_PLAYING = false
 var MainTheme = ""
 var CURRENT_CELL = null
-var SEEDS = 2
+var SEEDS = 0
 var shaker_obj = null
 
 func save_game():
