@@ -9,6 +9,14 @@ var CURRENT_CELL = null
 var SEEDS = 0
 var shaker_obj = null
 
+enum SeedTiers {
+	D,
+	C, 
+	B,
+	A,
+	S,
+}
+
 func save_game():
 	pass
 #	var saved_game = FileAccess.open("user://savegame.save", FileAccess.WRITE)

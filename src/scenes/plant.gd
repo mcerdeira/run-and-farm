@@ -3,6 +3,7 @@ var hitted_ttl = 0
 var hitted_ttl_total = 0.3
 var life = 3
 var seed_obj = preload("res://scenes/seed.tscn")
+var tier = Global.SeedTiers.D
 
 func _ready():
 	add_to_group("enemies")
@@ -16,19 +17,45 @@ func _physics_process(delta):
 			$sprite.material.set_shader_parameter("hitted", 0)
 			
 func die():
-	var count = Global.pick_random([1, 2, 2])
-	spawn_seed(count)
+	var count = 0
+	if tier == Global.SeedTiers.D:
+		spawn_seed(tier, Vector2(1, -1))
+		spawn_seed(tier, Vector2(-1, 1))
+		spawn_seed(tier, Vector2(0, 0))
+	if tier == Global.SeedTiers.C:
+		spawn_seed(Global.SeedTiers.D, Vector2(1, -1))
+		spawn_seed(Global.SeedTiers.D, Vector2(-1, 1))
+		spawn_seed(tier, Vector2(0, 0))
+	if tier == Global.SeedTiers.B:
+		spawn_seed(Global.SeedTiers.C, Vector2(1, -1))
+		spawn_seed(Global.SeedTiers.C, Vector2(-1, 1))
+		spawn_seed(tier, Vector2(0, 0))
+	if tier == Global.SeedTiers.A:
+		spawn_seed(Global.pick_random([Global.SeedTiers.B, Global.SeedTiers.C, Global.SeedTiers.D]), Vector2(1, -1))
+		spawn_seed(Global.pick_random([Global.SeedTiers.B, Global.SeedTiers.C, Global.SeedTiers.D]), Vector2(-1, 1))
+		spawn_seed(Global.pick_random([Global.SeedTiers.B, Global.SeedTiers.C, Global.SeedTiers.D]), Vector2(-1,-1))
+		spawn_seed(Global.pick_random([Global.SeedTiers.B, Global.SeedTiers.C, Global.SeedTiers.D]), Vector2(1, 1))
+		spawn_seed(tier, Vector2(0, 0))
+	if tier == Global.SeedTiers.S:
+		spawn_seed(Global.pick_random([Global.SeedTiers.A, Global.SeedTiers.B, Global.SeedTiers.C, Global.SeedTiers.D]), Vector2(1, -1))
+		spawn_seed(Global.pick_random([Global.SeedTiers.A, Global.SeedTiers.B, Global.SeedTiers.C, Global.SeedTiers.D]), Vector2(-1, 1))
+		spawn_seed(Global.pick_random([Global.SeedTiers.A, Global.SeedTiers.B, Global.SeedTiers.C, Global.SeedTiers.D]), Vector2(-1,-1))
+		spawn_seed(Global.pick_random([Global.SeedTiers.A, Global.SeedTiers.B, Global.SeedTiers.C, Global.SeedTiers.D]), Vector2(1, 1))
+		spawn_seed(Global.pick_random([Global.SeedTiers.A, Global.SeedTiers.B, Global.SeedTiers.C, Global.SeedTiers.D]), Vector2(0, 1))
+		spawn_seed(Global.pick_random([Global.SeedTiers.A, Global.SeedTiers.B, Global.SeedTiers.C, Global.SeedTiers.D]), Vector2(1, 0))
+		spawn_seed(Global.pick_random([Global.SeedTiers.A, Global.SeedTiers.B, Global.SeedTiers.C, Global.SeedTiers.D]), Vector2(-1, 0))
+		spawn_seed(tier, Vector2(0, 0))
+		
 	get_parent().set_free()
 	queue_free()
 
-func spawn_seed(count):
-	var dir = [Vector2(1, -1), Vector2(-1, 1)]
-	for i in count:
-		var seed = seed_obj.instantiate()
-		var root = get_parent().get_parent().get_parent()
-		seed.global_position = global_position
-		seed.initialize(dir[i])
-		root.add_child(seed)
+func spawn_seed(tier, dir):
+	var seed = seed_obj.instantiate()
+	var root = get_parent().get_parent().get_parent()
+	seed.global_position = global_position
+	seed.initialize(dir)
+	seed.tier = tier
+	root.add_child(seed)
 
 func hit():
 	if hitted_ttl <= 0:

@@ -2,6 +2,7 @@ extends CharacterBody2D
 var SPEED = 10.0
 var target = null
 var taken = false
+var tier = Global.SeedTiers.D
 
 func initialize(_target):
 	target = _target
