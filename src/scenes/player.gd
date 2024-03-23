@@ -1,5 +1,5 @@
 extends Area2D
-var walk_speed = 50
+var walk_speed = 100
 
 func _ready():
 	add_to_group("players")
@@ -24,9 +24,15 @@ func _physics_process(delta):
 		$eyes.scale.x = 1
 
 	if up:
-		position.y -= walk_speed * delta
+		if right or left:
+			position.y -= walk_speed / 2 * delta
+		else:
+			position.y -= walk_speed * delta
 	elif down:
-		position.y += walk_speed * delta
+		if right or left:
+			position.y += walk_speed / 2 * delta
+		else:
+			position.y += walk_speed * delta
 		
 	if moving:
 		$sprite.animation = "run"

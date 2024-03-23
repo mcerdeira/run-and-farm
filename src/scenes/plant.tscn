@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://f0rc6q5iufdl"]
+[gd_scene load_steps=9 format=3 uid="uid://f0rc6q5iufdl"]
 
 [ext_resource type="Texture2D" uid="uid://yjvjdilpvkad" path="res://sprites/plant_base1.png" id="1_0dpev"]
 [ext_resource type="Script" path="res://scenes/plant.gd" id="1_4esfg"]
@@ -27,6 +27,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yd7k3"]
 size = Vector2(21, 28)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h0mur"]
+size = Vector2(32, 32)
+
 [node name="Plant" type="Area2D"]
 script = ExtResource("1_4esfg")
 
@@ -39,3 +42,6 @@ frame_progress = 0.614607
 [node name="collider" type="CollisionShape2D" parent="."]
 position = Vector2(-1.5, -18)
 shape = SubResource("RectangleShape2D_yd7k3")
+
+[node name="collider2" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_h0mur")

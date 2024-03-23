@@ -9,6 +9,12 @@ var CURRENT_CELL = null
 var SEEDS = 0
 var shaker_obj = null
 
+enum States {
+	FREE,
+	GROWING, 
+	FULL_PLANT,
+}
+
 enum SeedTiers {
 	D,
 	C, 

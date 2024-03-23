@@ -72,10 +72,10 @@ material = SubResource("ShaderMaterial_sdya6")
 sprite_frames = SubResource("SpriteFrames_b81lb")
 
 [node name="animation" type="AnimationPlayer" parent="."]
+speed_scale = 7.0
 libraries = {
 "": SubResource("AnimationLibrary_mgykk")
 }
-speed_scale = 7.0
 
 [connection signal="area_entered" from="area" to="." method="_on_area_area_entered"]
 [connection signal="animation_finished" from="animation" to="." method="_on_animation_player_animation_finished"]
