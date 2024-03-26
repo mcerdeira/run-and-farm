@@ -1,8 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://cppwk2p0cewq"]
+[gd_scene load_steps=14 format=3 uid="uid://cppwk2p0cewq"]
 
 [ext_resource type="Script" path="res://scenes/seed.gd" id="1_08a6m"]
 [ext_resource type="Shader" path="res://scenes/seed.gdshader" id="2_n02ou"]
-[ext_resource type="Texture2D" uid="uid://lwxays5lhhfn" path="res://sprites/player_bullet_seed.png" id="3_rdu4p"]
+[ext_resource type="Texture2D" uid="uid://x34m76lq8o8u" path="res://sprites/player_bullet_seed4.png" id="3_0mgw6"]
+[ext_resource type="Texture2D" uid="uid://jm00gxc2hkr2" path="res://sprites/player_bullet_seed3.png" id="4_8ab23"]
+[ext_resource type="Texture2D" uid="uid://sif5drc7a6k2" path="res://sprites/player_bullet_seed2.png" id="5_o1e0y"]
+[ext_resource type="Texture2D" uid="uid://so6r08sxpbnd" path="res://sprites/player_bullet_seed1.png" id="6_t7e1m"]
+[ext_resource type="Texture2D" uid="uid://tv85841xt74a" path="res://sprites/player_bullet_seed5.png" id="7_itkx8"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jlmqk"]
 radius = 9.0
@@ -19,10 +23,42 @@ shader_parameter/white = null
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_rdu4p")
+"texture": ExtResource("3_0mgw6")
 }],
 "loop": true,
-"name": &"default",
+"name": &"A",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_8ab23")
+}],
+"loop": true,
+"name": &"B",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_o1e0y")
+}],
+"loop": true,
+"name": &"C",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_t7e1m")
+}],
+"loop": true,
+"name": &"D",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_itkx8")
+}],
+"loop": true,
+"name": &"S",
 "speed": 5.0
 }]
 
@@ -73,6 +109,7 @@ shape = SubResource("CircleShape2D_jlmqk")
 [node name="sprite" type="AnimatedSprite2D" parent="."]
 material = SubResource("ShaderMaterial_sdya6")
 sprite_frames = SubResource("SpriteFrames_b81lb")
+animation = &"D"
 
 [node name="animation" type="AnimationPlayer" parent="."]
 libraries = {

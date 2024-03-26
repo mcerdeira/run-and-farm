@@ -1,25 +1,70 @@
-[gd_scene load_steps=6 format=3 uid="uid://c2ro540sim5ds"]
+[gd_scene load_steps=11 format=3 uid="uid://c2ro540sim5ds"]
 
 [ext_resource type="Script" path="res://scenes/player_bullet.gd" id="1_54yyy"]
+[ext_resource type="Texture2D" uid="uid://x34m76lq8o8u" path="res://sprites/player_bullet_seed4.png" id="2_g6wu7"]
 [ext_resource type="Texture2D" uid="uid://crfex47ygl2dj" path="res://sprites/player_bullet.png" id="2_sbd8l"]
-[ext_resource type="Texture2D" uid="uid://lwxays5lhhfn" path="res://sprites/player_bullet_seed.png" id="3_s8i77"]
+[ext_resource type="Texture2D" uid="uid://jm00gxc2hkr2" path="res://sprites/player_bullet_seed3.png" id="3_81mfx"]
+[ext_resource type="Texture2D" uid="uid://sif5drc7a6k2" path="res://sprites/player_bullet_seed2.png" id="4_cox80"]
+[ext_resource type="Texture2D" uid="uid://so6r08sxpbnd" path="res://sprites/player_bullet_seed1.png" id="5_u82g1"]
+[ext_resource type="Texture2D" uid="uid://tv85841xt74a" path="res://sprites/player_bullet_seed5.png" id="6_5n4cm"]
+[ext_resource type="Texture2D" uid="uid://des6do2k7wdw0" path="res://sprites/player_bullet_water.png" id="7_62iow"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2w4ay"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_g6wu7")
+}],
+"loop": true,
+"name": &"A",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_81mfx")
+}],
+"loop": true,
+"name": &"B",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_cox80")
+}],
+"loop": true,
+"name": &"C",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_u82g1")
+}],
+"loop": true,
+"name": &"D",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_5n4cm")
+}],
+"loop": true,
+"name": &"S",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_62iow")
+}],
+"loop": true,
+"name": &"WATER",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_sbd8l")
 }],
 "loop": true,
 "name": &"default",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("3_s8i77")
-}],
-"loop": true,
-"name": &"seed",
 "speed": 5.0
 }]
 

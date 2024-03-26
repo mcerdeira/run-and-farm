@@ -6,8 +6,9 @@ var MUSIC_ENABLED = true
 var MUSIC_PLAYING = false
 var MainTheme = ""
 var CURRENT_CELL = null
-var SEEDS = 0
+var SEEDS = [0, 0, 0, 0, 0, 0]
 var shaker_obj = null
+var SelectedSeed = 0
 
 enum States {
 	FREE,
@@ -15,12 +16,15 @@ enum States {
 	FULL_PLANT,
 }
 
+var TierSprites = ["D", "C", "B", "A", "S", "WATER"] 
+
 enum SeedTiers {
 	D,
 	C, 
 	B,
 	A,
 	S,
+	WATER
 }
 
 func save_game():

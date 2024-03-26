@@ -55,7 +55,16 @@ func spawn_seed(tier, dir):
 	seed.global_position = global_position
 	seed.initialize(dir)
 	seed.tier = tier
+	seed.set_sprite()
 	root.add_child(seed)
+	
+func upgrade():
+	if tier != Global.SeedTiers.S:
+		tier = Global.SeedTiers.D + 1
+		set_sprite()
+		
+func set_sprite():
+	$sprite.animation = Global.TierSprites[tier]
 
 func hit():
 	if hitted_ttl <= 0:

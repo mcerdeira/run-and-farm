@@ -1,9 +1,17 @@
-[gd_scene load_steps=9 format=3 uid="uid://f0rc6q5iufdl"]
+[gd_scene load_steps=17 format=3 uid="uid://f0rc6q5iufdl"]
 
 [ext_resource type="Texture2D" uid="uid://yjvjdilpvkad" path="res://sprites/plant_base1.png" id="1_0dpev"]
 [ext_resource type="Script" path="res://scenes/plant.gd" id="1_4esfg"]
 [ext_resource type="Texture2D" uid="uid://dcjw82ypix6y7" path="res://sprites/plant_base2.png" id="2_6s2yf"]
 [ext_resource type="Shader" path="res://scenes/plant.gdshader" id="2_71isk"]
+[ext_resource type="Texture2D" uid="uid://dapprsxslxtw0" path="res://sprites/plant_base7.png" id="3_1tp5x"]
+[ext_resource type="Texture2D" uid="uid://wgl8mxygwfkk" path="res://sprites/plant_base8.png" id="4_crwq7"]
+[ext_resource type="Texture2D" uid="uid://bytpuh57bcj6" path="res://sprites/plant_base5.png" id="5_lawik"]
+[ext_resource type="Texture2D" uid="uid://daouo5crnkp01" path="res://sprites/plant_base6.png" id="6_t53sa"]
+[ext_resource type="Texture2D" uid="uid://cjqgcdt8kwfvv" path="res://sprites/plant_base3.png" id="7_xpfd3"]
+[ext_resource type="Texture2D" uid="uid://cbqbo3w6vjaud" path="res://sprites/plant_base4.png" id="8_rkywv"]
+[ext_resource type="Texture2D" uid="uid://d0fxwjtujpgj6" path="res://sprites/plant_base9.png" id="11_pontp"]
+[ext_resource type="Texture2D" uid="uid://d066jebvoweq7" path="res://sprites/plant_base10.png" id="12_pmjk8"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ymrag"]
 resource_local_to_scene = true
@@ -14,13 +22,57 @@ shader_parameter/hitted = 0.0
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("3_1tp5x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_crwq7")
+}],
+"loop": true,
+"name": &"A",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_lawik")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_t53sa")
+}],
+"loop": true,
+"name": &"B",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_xpfd3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_rkywv")
+}],
+"loop": true,
+"name": &"C",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("1_0dpev")
 }, {
 "duration": 1.0,
 "texture": ExtResource("2_6s2yf")
 }],
 "loop": true,
-"name": &"default",
+"name": &"D",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_pontp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_pmjk8")
+}],
+"loop": true,
+"name": &"S",
 "speed": 5.0
 }]
 
@@ -37,7 +89,7 @@ script = ExtResource("1_4esfg")
 material = SubResource("ShaderMaterial_ymrag")
 position = Vector2(1, -16)
 sprite_frames = SubResource("SpriteFrames_jbf65")
-frame_progress = 0.614607
+animation = &"D"
 
 [node name="collider" type="CollisionShape2D" parent="."]
 position = Vector2(-1.5, -18)

@@ -1,9 +1,17 @@
-[gd_scene load_steps=10 format=3 uid="uid://d3fv13mhatpqs"]
+[gd_scene load_steps=18 format=3 uid="uid://d3fv13mhatpqs"]
 
 [ext_resource type="Script" path="res://scenes/cell.gd" id="1_r4uht"]
 [ext_resource type="Texture2D" uid="uid://ccbjvmnund6yq" path="res://sprites/cell.png" id="1_yxj4l"]
+[ext_resource type="Texture2D" uid="uid://b3pm4w0ro15wt" path="res://sprites/cell_planted5.png" id="3_l5uux"]
+[ext_resource type="Texture2D" uid="uid://osjrxlyi4cal" path="res://sprites/cell_planted7.png" id="3_ykypw"]
 [ext_resource type="Texture2D" uid="uid://dpfkweh23twxm" path="res://sprites/cell_planted1.png" id="3_yrytj"]
 [ext_resource type="Texture2D" uid="uid://c0b5vgk8v4mxl" path="res://sprites/cell_planted2.png" id="4_2cx7x"]
+[ext_resource type="Texture2D" uid="uid://2pdocprta1sc" path="res://sprites/cell_planted8.png" id="4_07bfu"]
+[ext_resource type="Texture2D" uid="uid://dnuqaiwfe637y" path="res://sprites/cell_planted6.png" id="4_fkca1"]
+[ext_resource type="Texture2D" uid="uid://d0giecotbpsmq" path="res://sprites/cell_planted3.png" id="5_y4wn2"]
+[ext_resource type="Texture2D" uid="uid://ckvg7ld6266re" path="res://sprites/cell_planted4.png" id="6_d6f61"]
+[ext_resource type="Texture2D" uid="uid://df80xum7njx32" path="res://sprites/cell_planted9.png" id="11_xaqeq"]
+[ext_resource type="Texture2D" uid="uid://bfxx2ra478yxa" path="res://sprites/cell_planted10.png" id="12_46nk6"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_kroic"]
 animations = [{
@@ -48,13 +56,57 @@ _data = {
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("3_ykypw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_07bfu")
+}],
+"loop": true,
+"name": &"A",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_l5uux")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_fkca1")
+}],
+"loop": true,
+"name": &"B",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_y4wn2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_d6f61")
+}],
+"loop": true,
+"name": &"C",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("3_yrytj")
 }, {
 "duration": 1.0,
 "texture": ExtResource("4_2cx7x")
 }],
 "loop": true,
-"name": &"default",
+"name": &"D",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_xaqeq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_46nk6")
+}],
+"loop": true,
+"name": &"S",
 "speed": 5.0
 }]
 
@@ -74,9 +126,18 @@ libraries = {
 }
 speed_scale = 4.0
 
+[node name="Watered" type="ColorRect" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 16.0
+color = Color(0, 0, 0, 1)
+
 [node name="CellPlanted" type="AnimatedSprite2D" parent="."]
 visible = false
 sprite_frames = SubResource("SpriteFrames_hywl3")
+animation = &"D"
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
