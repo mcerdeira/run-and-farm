@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cppwk2p0cewq"]
+[gd_scene load_steps=10 format=3 uid="uid://cppwk2p0cewq"]
 
 [ext_resource type="Script" path="res://scenes/seed.gd" id="1_08a6m"]
 [ext_resource type="Shader" path="res://scenes/seed.gdshader" id="2_n02ou"]
@@ -59,6 +59,9 @@ _data = {
 "new_animation": SubResource("Animation_ttnd8")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_mk6ay"]
+radius = 31.0161
+
 [node name="seed" type="CharacterBody2D"]
 script = ExtResource("1_08a6m")
 
@@ -72,10 +75,16 @@ material = SubResource("ShaderMaterial_sdya6")
 sprite_frames = SubResource("SpriteFrames_b81lb")
 
 [node name="animation" type="AnimationPlayer" parent="."]
-speed_scale = 7.0
 libraries = {
 "": SubResource("AnimationLibrary_mgykk")
 }
+speed_scale = 7.0
+
+[node name="magnet" type="Area2D" parent="."]
+
+[node name="collider" type="CollisionShape2D" parent="magnet"]
+shape = SubResource("CircleShape2D_mk6ay")
 
 [connection signal="area_entered" from="area" to="." method="_on_area_area_entered"]
 [connection signal="animation_finished" from="animation" to="." method="_on_animation_player_animation_finished"]
+[connection signal="area_entered" from="magnet" to="." method="_on_magnet_area_entered"]
