@@ -22,19 +22,31 @@ func die():
 		spawn_seed(tier, Vector2(1, -1))
 		spawn_seed(tier, Vector2(-1, 1))
 		spawn_seed(tier, Vector2(0, 0))
+		if Global.pick_random([false, true]):
+			spawn_seed(tier, Vector2(-1,-1))
+		
 	if tier == Global.SeedTiers.C:
 		spawn_seed(Global.SeedTiers.D, Vector2(1, -1))
-		spawn_seed(Global.SeedTiers.D, Vector2(-1, 1))
+		if Global.pick_random([false, true]):
+			spawn_seed(Global.SeedTiers.D, Vector2(-1, 1))
+		else:
+			spawn_seed(tier, Vector2(-1, 1))
+			
 		spawn_seed(tier, Vector2(0, 0))
 	if tier == Global.SeedTiers.B:
 		spawn_seed(Global.SeedTiers.C, Vector2(1, -1))
 		spawn_seed(Global.SeedTiers.C, Vector2(-1, 1))
+		if Global.pick_random([false, true]):
+			spawn_seed(Global.SeedTiers.C, Vector2(-1, 1))
+		else:
+			spawn_seed(tier, Vector2(-1, 1))
+		
 		spawn_seed(tier, Vector2(0, 0))
 	if tier == Global.SeedTiers.A:
 		spawn_seed(Global.pick_random([Global.SeedTiers.B, Global.SeedTiers.C, Global.SeedTiers.D]), Vector2(1, -1))
 		spawn_seed(Global.pick_random([Global.SeedTiers.B, Global.SeedTiers.C, Global.SeedTiers.D]), Vector2(-1, 1))
 		spawn_seed(Global.pick_random([Global.SeedTiers.B, Global.SeedTiers.C, Global.SeedTiers.D]), Vector2(-1,-1))
-		spawn_seed(Global.pick_random([Global.SeedTiers.B, Global.SeedTiers.C, Global.SeedTiers.D]), Vector2(1, 1))
+		spawn_seed(Global.pick_random([tier, Global.SeedTiers.B, Global.SeedTiers.C, Global.SeedTiers.D]), Vector2(1, 1))
 		spawn_seed(tier, Vector2(0, 0))
 	if tier == Global.SeedTiers.S:
 		spawn_seed(Global.pick_random([Global.SeedTiers.A, Global.SeedTiers.B, Global.SeedTiers.C, Global.SeedTiers.D]), Vector2(1, -1))
@@ -43,7 +55,7 @@ func die():
 		spawn_seed(Global.pick_random([Global.SeedTiers.A, Global.SeedTiers.B, Global.SeedTiers.C, Global.SeedTiers.D]), Vector2(1, 1))
 		spawn_seed(Global.pick_random([Global.SeedTiers.A, Global.SeedTiers.B, Global.SeedTiers.C, Global.SeedTiers.D]), Vector2(0, 1))
 		spawn_seed(Global.pick_random([Global.SeedTiers.A, Global.SeedTiers.B, Global.SeedTiers.C, Global.SeedTiers.D]), Vector2(1, 0))
-		spawn_seed(Global.pick_random([Global.SeedTiers.A, Global.SeedTiers.B, Global.SeedTiers.C, Global.SeedTiers.D]), Vector2(-1, 0))
+		spawn_seed(Global.pick_random([tier, Global.SeedTiers.A, Global.SeedTiers.B, Global.SeedTiers.C, Global.SeedTiers.D]), Vector2(-1, 0))
 		spawn_seed(tier, Vector2(0, 0))
 		
 	get_parent().set_free()
@@ -60,7 +72,7 @@ func spawn_seed(tier, dir):
 	
 func upgrade():
 	if tier != Global.SeedTiers.S:
-		tier = Global.SeedTiers.D + 1
+		tier += 1
 		set_sprite()
 		
 func set_sprite():

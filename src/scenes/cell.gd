@@ -55,7 +55,7 @@ func check_neighbors():
 				
 func upgrade():
 	if tier != Global.SeedTiers.S:
-		tier = Global.SeedTiers.D + 1
+		tier += 1
 
 	current_plant.upgrade()
 	

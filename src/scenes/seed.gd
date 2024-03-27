@@ -7,6 +7,9 @@ var absorved = false
 var player = null
 var speed = 150
 
+func _ready():
+	set_sprite()
+
 func initialize(_target):
 	target = _target
 	velocity = target * SPEED
